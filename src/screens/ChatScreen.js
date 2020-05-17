@@ -23,7 +23,7 @@ export class ChatScreen extends React.Component {
           createdAt: new Date(),
           user: {
             _id: 2,
-            name: 'React Native',
+            name: 'John Apple',
             avatar: 'https://placeimg.com/140/140/any',
           },
         },
@@ -42,7 +42,12 @@ export class ChatScreen extends React.Component {
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <ChatHeader />
         <GiftedChat
-          renderSend={(props) => customSend(props)}
+          minComposerHeight={35}
+          bottomOffset={30}
+          forceGetKeyboardHeight
+          alignTop
+          alwaysShowSend
+          minInputToolbarHeight={45}
           renderTime={() => null}
           renderBubble={(props) => customBubble(props)}
           renderComposer={(props) => customComposer(props)}
@@ -68,20 +73,22 @@ function customBubble(props) {
       {...props}
       textStyle={{
         left: {
-          fontSize: 14,
+          fontSize: 16,
+          paddingHorizontal: 3,
+          paddingVertical: 3,
         },
         right: {
-          fontSize: 14,
+          fontSize: 16,
+          paddingHorizontal: 3,
+          paddingVertical: 3,
         },
       }}
       wrapperStyle={{
         left: {
-          paddingHorizontal: 2,
-          paddingVerticle: 2,
+          borderRadius: 20,
         },
         right: {
-          paddingHorizontal: 2,
-          paddingVerticle: 2,
+          borderRadius: 20,
         },
       }}
     />
@@ -150,15 +157,6 @@ function ChatHeader({ navigation }) {
         centerContainerStyle={{
           justifyContent: 'flex-start',
         }}
-        leftComponent={
-          <Icon
-            name='menu'
-            type='material'
-            color='#000'
-            size='22'
-            onPress={() => navigation.openDrawer()}
-          />
-        }
       />
     </View>
   );

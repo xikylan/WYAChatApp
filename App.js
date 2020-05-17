@@ -10,12 +10,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator
-        drawerType='front'
-        initialRouteName='Home'
         edgeWidth={100}
         drawerStyle={{
           backgroundColor: '#fff',
-          width: '85%',
+          width: '80%',
         }}
         drawerContent={() => <DrawerMenu />}
       >

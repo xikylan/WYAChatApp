@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 export function DrawerHeader() {
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>Founder's Third</Text>
+      <Text style={styles.title}>Founder's 3rd</Text>
       <View style={styles.buttonsContainer}>
         <TouchableOpacity style={styles.membersButton}>
           <Text style={styles.membersButtonText}>14 members</Text>
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
   },
   header: {
     justifyContent: 'flex-end',
-    height: '25%',
-    backgroundColor: '#4B75FF',
+    height: '20%',
+    backgroundColor: '#fff',
   },
   inviteButton: {
     backgroundColor: '#6482FF',
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   title: {
-    color: 'white',
+    color: '#000',
     paddingHorizontal: 20,
     fontSize: 24,
     fontWeight: 'bold',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Keyboard } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import {
   GiftedChat,
@@ -9,6 +9,7 @@ import {
   Send,
   Actions,
 } from 'react-native-gifted-chat';
+
 import { useState } from 'react';
 
 export function ChatScreen() {
@@ -33,6 +34,7 @@ export function ChatScreen() {
     <View style={{ flex: 1, backgroundColor: '#000' }}>
       <ChatHeader />
       <GiftedChat
+        keyboardShouldPersistTaps='handled'
         renderActions={(props) => customActions(props)}
         bottomOffset={20}
         renderSend={(props) => customSend(props)}
@@ -56,9 +58,10 @@ function customActions(props) {
       {...props}
       containerStyle={{
         justifyContent: 'center',
+        alignItems: 'center',
       }}
-      onPressActionButton={() => alert('action!')}
-      icon={() => <Icon name='camera-alt' color='#999' size={22} />}
+      onPressActionButton={() => Keyboard.dismiss()}
+      icon={() => <Icon name='camera-alt' color='#999' size={20} />}
     />
   );
 }
@@ -128,30 +131,14 @@ function customComposer(props) {
   );
 }
 
-function CameraButton() {
-  return (
-    <View
-      style={{
-        justifyContent: 'center',
-        alignSelf: 'center',
-        paddingLeft: 10,
-      }}
-    >
-      <TouchableOpacity>
-        <Icon name='camera-alt' />
-      </TouchableOpacity>
-    </View>
-  );
-}
-
 function customInputToolBar(props) {
   return (
     <InputToolbar
       {...props}
       containerStyle={{
-        borderRadius: 25,
+        borderRadius: 20,
         borderTopWidth: 0,
-        backgroundColor: '#333',
+        backgroundColor: '#222',
         marginHorizontal: 20,
       }}
     />

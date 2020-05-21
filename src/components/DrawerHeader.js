@@ -22,15 +22,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 20,
     paddingTop: 10,
-    paddingBottom: 20,
   },
   header: {
-    justifyContent: 'flex-end',
-    height: '20%',
-    backgroundColor: '#fff',
+    justifyContent: 'center',
+    height: '15%',
+    backgroundColor: '#222',
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
   },
   inviteButton: {
-    backgroundColor: '#6482FF',
+    backgroundColor: '#D54AFF',
     borderRadius: 20,
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -39,9 +40,10 @@ const styles = StyleSheet.create({
   inviteButtonText: {
     color: '#fff',
     fontWeight: 'bold',
+    fontSize: 12,
   },
   membersButton: {
-    backgroundColor: '#849CFF',
+    backgroundColor: '#D54AFF',
     borderRadius: 20,
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -49,11 +51,12 @@ const styles = StyleSheet.create({
   membersButtonText: {
     color: '#fff',
     fontWeight: 'bold',
+    fontSize: 12,
   },
   title: {
-    color: '#000',
+    color: '#eee',
     paddingHorizontal: 20,
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
   },
 });

@@ -1,87 +1,135 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { Badge, Avatar } from 'react-native-elements';
+import { Badge, Avatar, Icon } from 'react-native-elements';
 
 export function GroupLocations() {
   return (
     <View style={{ flex: 1 }}>
-      <Text
+      <View
         style={{
-          color: '#000',
-          paddingHorizontal: 20,
-          paddingVertical: 10,
-          fontWeight: 'bold',
+          flexDirection: 'row',
+          backgroundColor: '#222',
+          justifyContent: 'space-between',
+          alignItems: 'center',
         }}
       >
-        Places
-      </Text>
+        <Text
+          style={{
+            backgroundColor: '#222',
+            color: '#eee',
+            paddingHorizontal: 20,
+            paddingVertical: 10,
+            fontWeight: 'bold',
+          }}
+        >
+          Places
+        </Text>
+        <Icon
+          name='menu'
+          color='#fff'
+          size={20}
+          style={{
+            paddingHorizontal: 10,
+          }}
+        />
+      </View>
 
       <ScrollView
+        style={{
+          backgroundColor: '#222',
+          borderBottomLeftRadius: 15,
+          borderBottomRightRadius: 15,
+        }}
         contentContainerStyle={{
-          backgroundColor: '#fff',
           paddingHorizontal: 20,
           paddingVertical: 10,
         }}
       >
-        <Location />
-        <Location />
-        <Location />
+        <Location name='Founders' />
+        <Location name='Plinth' />
+        <Location name='Gym' />
       </ScrollView>
     </View>
   );
 }
 
-function Location() {
+function Location(props) {
   return (
-    <View style={{ paddingBottom: 30 }}>
-      <Badge
-        containerStyle={{
-          flexDirection: 'row',
-        }}
-        badgeStyle={{
-          borderRadius: 30,
-          backgroundColor: '#F0F0F0',
-          borderColor: '#F0F0F0',
-          paddingHorizontal: 5,
-          height: 25,
-        }}
-        value='Founders'
-        textStyle={{
-          color: '#000',
-          fontSize: 12,
-          fontWeight: 'bold',
-        }}
-      />
+    <View>
       <View
         style={{
-          flexDirection: 'row',
-          padding: 10,
+          backgroundColor: '#333',
+          marginBottom: 10,
+          paddingHorizontal: 10,
+          paddingVertical: 8,
+          borderRadius: 10,
         }}
       >
-        <Avatar
-          rounded
-          source={{
-            uri:
-              'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}
-        ></Avatar>
-        <View style={{ paddingHorizontal: 4 }}></View>
-        <Avatar
-          rounded
-          source={{
-            uri:
-              'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+        >
+          <Text style={{ color: '#fff', fontWeight: 'bold' }}>
+            {props.name}
+          </Text>
+          <Icon name='triangle-down' type='octicon' size={15} color='#999' />
+        </View>
+      </View>
+      <View
+        style={{
+          flexDirection: 'column',
+          marginBottom: 20,
+        }}
+      >
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            paddingHorizontal: 20,
+            marginBottom: 10,
           }}
-        ></Avatar>
-        <View style={{ paddingHorizontal: 4 }}></View>
-        <Avatar
-          rounded
-          source={{
-            uri:
-              'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+        >
+          <Avatar
+            rounded
+            source={{ uri: 'https://placeimg.com/140/140/any' }}
+            size={25}
+          />
+          <Text style={{ paddingLeft: 10, color: '#fff' }}>Ben H.</Text>
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            paddingHorizontal: 20,
+            marginBottom: 10,
           }}
-        ></Avatar>
+        >
+          <Avatar
+            rounded
+            source={{ uri: 'https://placeimg.com/140/140/any' }}
+            size={25}
+          />
+          <Text style={{ paddingLeft: 10, color: '#fff' }}>Amanda M.</Text>
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            paddingHorizontal: 20,
+            marginBottom: 10,
+          }}
+        >
+          <Avatar
+            rounded
+            source={{ uri: 'https://placeimg.com/140/140/any' }}
+            size={25}
+          />
+          <Text style={{ paddingLeft: 10, color: '#fff' }}>Carla S.</Text>
+        </View>
       </View>
     </View>
   );

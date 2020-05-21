@@ -6,8 +6,12 @@ import { GroupLocations } from './GroupLocations.js';
 export function DrawerMenu() {
   return (
     <View style={{ flex: 1 }}>
-      <DrawerHeader />
-      <GroupLocations />
+      <View style={{ flex: 1 }}></View>
+      <View style={{ flex: 14 }}>
+        <DrawerHeader />
+        <GroupLocations />
+      </View>
+      <View style={{ flex: 1 }}></View>
     </View>
   );
 }

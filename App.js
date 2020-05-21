@@ -13,7 +13,8 @@ export default function App() {
         drawerPosition='right'
         edgeWidth={100}
         drawerStyle={{
-          backgroundColor: '#fff',
+          paddingRight: 5,
+          backgroundColor: 'transparent',
         }}
         drawerContent={() => <DrawerMenu />}
       >

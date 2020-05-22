@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Keyboard } from 'react-native';
+import { View, Keyboard, SafeAreaView } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import {
   GiftedChat,
@@ -33,10 +33,12 @@ export function ChatScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: '#000' }}>
       <ChatHeader />
+
       <GiftedChat
+        listViewProps={{ keyboardDismissMode: 'on-drag', marginVertical: 10 }}
         keyboardShouldPersistTaps='handled'
-        renderActions={(props) => customActions(props)}
         bottomOffset={20}
+        renderActions={(props) => customActions(props)}
         renderSend={(props) => customSend(props)}
         renderTime={() => null}
         renderBubble={(props) => customBubble(props)}
@@ -48,21 +50,25 @@ export function ChatScreen() {
           _id: 1,
         }}
       />
+      {/* <SafeAreaView style={{ backgroundColor: '#333' }} /> */}
     </View>
   );
 }
 
 function customActions(props) {
   return (
-    <Actions
-      {...props}
-      containerStyle={{
-        justifyContent: 'center',
-        alignItems: 'center',
+    <View
+      style={{
+        height: 38,
+        marginLeft: 5,
       }}
-      onPressActionButton={() => Keyboard.dismiss()}
-      icon={() => <Icon name='camera-alt' color='#999' size={20} />}
-    />
+    >
+      <Actions
+        {...props}
+        onPressActionButton={() => Keyboard.dismiss()}
+        icon={() => <Icon name='camera-alt' color='#999' size={25} />}
+      />
+    </View>
   );
 }
 
@@ -71,7 +77,10 @@ function customSend(props) {
     <Send
       {...props}
       alwaysShowSend
-      containerStyle={{}}
+      containerStyle={{
+        justifyContent: 'center',
+        // marginRight: 10,
+      }}
       textStyle={{
         color: '#D54AFF',
       }}
@@ -116,6 +125,15 @@ function customComposer(props) {
       style={{
         flexDirection: 'row',
         flex: 1,
+        backgroundColor: '#222',
+        borderRadius: 20,
+        marginVertical: 5,
+        marginLeft: 15,
+        marginRight: 5,
+        paddingLeft: 5,
+        paddingRight: 10,
+        // borderWidth: 2,
+        // borderColor: '#333',
       }}
     >
       <Composer
@@ -123,7 +141,8 @@ function customComposer(props) {
         placeholderTextColor='#888'
         keyboardAppearance='dark'
         textInputStyle={{
-          lineHeight: 19,
+          lineHeight: 20,
+          fontSize: 16,
           color: '#eee',
         }}
       />
@@ -135,11 +154,13 @@ function customInputToolBar(props) {
   return (
     <InputToolbar
       {...props}
+      primaryStyle={{}}
       containerStyle={{
-        borderRadius: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
         borderTopWidth: 0,
-        backgroundColor: '#222',
-        marginHorizontal: 20,
+        borderTopColor: '#333',
+        backgroundColor: 'transparent',
       }}
     />
   );

@@ -12,6 +12,7 @@ export default function App() {
       <Drawer.Navigator
         drawerPosition='right'
         edgeWidth={100}
+        drawerType='front'
         drawerStyle={{
           paddingRight: 5,
           backgroundColor: 'transparent',

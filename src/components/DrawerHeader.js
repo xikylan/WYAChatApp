@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   header: {
     justifyContent: 'center',
     height: '15%',
-    backgroundColor: '#333',
+    backgroundColor: '#222',
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
   },

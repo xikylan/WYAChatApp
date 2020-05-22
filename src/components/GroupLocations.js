@@ -9,14 +9,14 @@ export function GroupLocations() {
       <View
         style={{
           flexDirection: 'row',
-          backgroundColor: '#333',
+          backgroundColor: '#222',
           justifyContent: 'space-between',
           alignItems: 'center',
         }}
       >
         <Text
           style={{
-            backgroundColor: '#333',
+            backgroundColor: '#222',
             color: '#eee',
             paddingHorizontal: 20,
             paddingVertical: 10,
@@ -37,7 +37,7 @@ export function GroupLocations() {
 
       <ScrollView
         style={{
-          backgroundColor: '#333',
+          backgroundColor: '#222',
           borderBottomLeftRadius: 15,
           borderBottomRightRadius: 15,
         }}
@@ -59,7 +59,7 @@ function Location(props) {
     <View>
       <View
         style={{
-          backgroundColor: '#555',
+          backgroundColor: '#333',
           marginBottom: 10,
           paddingHorizontal: 10,
           paddingVertical: 8,

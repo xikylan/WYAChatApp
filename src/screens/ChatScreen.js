@@ -37,7 +37,7 @@ export function ChatScreen() {
       <GiftedChat
         listViewProps={{ keyboardDismissMode: 'on-drag', marginVertical: 10 }}
         keyboardShouldPersistTaps='handled'
-        bottomOffset={20}
+        bottomOffset={16}
         renderActions={(props) => customActions(props)}
         renderSend={(props) => customSend(props)}
         renderTime={() => null}
@@ -50,7 +50,7 @@ export function ChatScreen() {
           _id: 1,
         }}
       />
-      {/* <SafeAreaView style={{ backgroundColor: '#333' }} /> */}
+      <SafeAreaView style={{ backgroundColor: '#111' }} />
     </View>
   );
 }
@@ -59,7 +59,7 @@ function customActions(props) {
   return (
     <View
       style={{
-        height: 38,
+        height: 42,
         marginLeft: 5,
       }}
     >
@@ -79,6 +79,7 @@ function customSend(props) {
       alwaysShowSend
       containerStyle={{
         justifyContent: 'center',
+        paddingBottom: 5,
         // marginRight: 10,
       }}
       textStyle={{
@@ -127,19 +128,16 @@ function customComposer(props) {
         flex: 1,
         backgroundColor: '#222',
         borderRadius: 20,
-        marginVertical: 5,
+        marginVertical: 8,
         marginLeft: 15,
         marginRight: 5,
-        paddingLeft: 5,
         paddingRight: 10,
-        // borderWidth: 2,
-        // borderColor: '#333',
       }}
     >
       <Composer
         {...props}
-        placeholderTextColor='#888'
         keyboardAppearance='dark'
+        placeholderTextColor='#888'
         textInputStyle={{
           lineHeight: 20,
           fontSize: 16,
@@ -156,11 +154,11 @@ function customInputToolBar(props) {
       {...props}
       primaryStyle={{}}
       containerStyle={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderTopWidth: 0,
-        borderTopColor: '#333',
-        backgroundColor: 'transparent',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        borderTopWidth: 1,
+        borderTopColor: '#222',
+        backgroundColor: '#111',
       }}
     />
   );

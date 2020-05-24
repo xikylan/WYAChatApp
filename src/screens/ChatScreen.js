@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Keyboard, SafeAreaView } from 'react-native';
-import { Header, Icon } from 'react-native-elements';
+import { Header, Icon, Button } from 'react-native-elements';
 import {
   GiftedChat,
   InputToolbar,
@@ -35,10 +35,9 @@ export function ChatScreen() {
       <ChatHeader />
 
       <GiftedChat
-        listViewProps={{ keyboardDismissMode: 'on-drag', marginVertical: 10 }}
+        listViewProps={{ keyboardDismissMode: 'on-drag' }}
         keyboardShouldPersistTaps='handled'
-        bottomOffset={16}
-        renderActions={(props) => customActions(props)}
+        renderActions={() => customActions()}
         renderSend={(props) => customSend(props)}
         renderTime={() => null}
         renderBubble={(props) => customBubble(props)}
@@ -55,37 +54,29 @@ export function ChatScreen() {
   );
 }
 
-function customActions(props) {
-  return (
-    <View
-      style={{
-        height: 42,
-        marginLeft: 5,
-      }}
-    >
-      <Actions
-        {...props}
-        onPressActionButton={() => Keyboard.dismiss()}
-        icon={() => <Icon name='camera-alt' color='#999' size={25} />}
-      />
-    </View>
-  );
-}
-
 function customSend(props) {
   return (
     <Send
       {...props}
       alwaysShowSend
       containerStyle={{
-        justifyContent: 'center',
-        paddingBottom: 5,
-        // marginRight: 10,
+        borderTopWidth: 0,
       }}
       textStyle={{
         color: '#D54AFF',
       }}
     />
+  );
+}
+
+function customActions() {
+  return (
+    <View style={{ flexDirection: 'row' }}>
+      <Actions
+        icon={() => <Icon name='photo' color='#666' />}
+        onPressActionButton={() => Keyboard.dismiss()}
+      />
+    </View>
   );
 }
 
@@ -120,26 +111,38 @@ function customBubble(props) {
   );
 }
 
+function CustomCamera() {
+  return (
+    <View
+      style={{
+        paddingHorizontal: 5,
+      }}
+    >
+      <Button
+        icon={() => <Icon name='camera-alt' color='#666' />}
+        buttonStyle={{
+          backgroundColor: 'transparent',
+        }}
+      />
+    </View>
+  );
+}
+
 function customComposer(props) {
   return (
     <View
       style={{
-        flexDirection: 'row',
         flex: 1,
-        backgroundColor: '#222',
-        borderRadius: 20,
-        marginVertical: 8,
-        marginLeft: 15,
-        marginRight: 5,
-        paddingRight: 10,
+        flexDirection: 'row',
+        marginHorizontal: 5,
       }}
     >
       <Composer
         {...props}
         keyboardAppearance='dark'
-        placeholderTextColor='#888'
+        placeholderTextColor='#777'
         textInputStyle={{
-          lineHeight: 20,
+          lineHeight: 19,
           fontSize: 16,
           color: '#eee',
         }}
@@ -154,11 +157,10 @@ function customInputToolBar(props) {
       {...props}
       primaryStyle={{}}
       containerStyle={{
-        // justifyContent: 'center',
-        // alignItems: 'center',
         borderTopWidth: 1,
         borderTopColor: '#222',
         backgroundColor: '#111',
+        paddingHorizontal: 5,
       }}
     />
   );

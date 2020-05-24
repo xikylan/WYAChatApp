@@ -1,30 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { Badge, Avatar, Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
+import { globalStyles } from '../GlobalStyles.js';
+
+import { Location } from '../components/Locations';
 
 export function GroupLocations() {
   return (
     <View style={{ flex: 1 }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          backgroundColor: '#222',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <Text
-          style={{
-            backgroundColor: '#222',
-            color: '#eee',
-            paddingHorizontal: 20,
-            paddingVertical: 10,
-            fontWeight: 'bold',
-          }}
-        >
-          Places
-        </Text>
+      <View style={styles.placesContainer}>
+        <Text style={styles.placesText}>Places</Text>
         <Icon
           name='menu'
           color='#fff'
@@ -35,17 +21,7 @@ export function GroupLocations() {
         />
       </View>
 
-      <ScrollView
-        style={{
-          backgroundColor: '#222',
-          borderBottomLeftRadius: 15,
-          borderBottomRightRadius: 15,
-        }}
-        contentContainerStyle={{
-          paddingHorizontal: 20,
-          paddingVertical: 10,
-        }}
-      >
+      <ScrollView style={styles.scrollView}>
         <Location name='Founders' />
         <Location name='Plinth' />
         <Location name='Gym' />
@@ -54,83 +30,25 @@ export function GroupLocations() {
   );
 }
 
-function Location(props) {
-  return (
-    <View>
-      <View
-        style={{
-          backgroundColor: '#333',
-          marginBottom: 10,
-          paddingHorizontal: 10,
-          paddingVertical: 8,
-          borderRadius: 10,
-        }}
-      >
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          <Text style={{ color: '#fff', fontWeight: 'bold' }}>
-            {props.name}
-          </Text>
-          <Icon name='triangle-down' type='octicon' size={15} color='#999' />
-        </View>
-      </View>
-      <View
-        style={{
-          flexDirection: 'column',
-          marginBottom: 20,
-        }}
-      >
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingHorizontal: 20,
-            marginBottom: 10,
-          }}
-        >
-          <Avatar
-            rounded
-            source={{ uri: 'https://placeimg.com/140/140/any' }}
-            size={25}
-          />
-          <Text style={{ paddingLeft: 10, color: '#fff' }}>Ben H.</Text>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingHorizontal: 20,
-            marginBottom: 10,
-          }}
-        >
-          <Avatar
-            rounded
-            source={{ uri: 'https://placeimg.com/140/140/any' }}
-            size={25}
-          />
-          <Text style={{ paddingLeft: 10, color: '#fff' }}>Amanda M.</Text>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingHorizontal: 20,
-            marginBottom: 10,
-          }}
-        >
-          <Avatar
-            rounded
-            source={{ uri: 'https://placeimg.com/140/140/any' }}
-            size={25}
-          />
-          <Text style={{ paddingLeft: 10, color: '#fff' }}>Carla S.</Text>
-        </View>
-      </View>
-    </View>
-  );
-}
+const styles = StyleSheet.create({
+  placesContainer: {
+    flexDirection: 'row',
+    backgroundColor: globalStyles.mainColor,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  placesText: {
+    backgroundColor: globalStyles.mainColor,
+    color: globalStyles.lightColor,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    fontWeight: 'bold',
+  },
+  scrollView: {
+    backgroundColor: globalStyles.mainColor,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
+});
